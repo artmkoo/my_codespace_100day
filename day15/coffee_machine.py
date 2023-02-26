@@ -19,7 +19,7 @@ def report(resources, money):
 def check_resources_for_order(coffee, available_resources):
     '''checking available resources to make a coffee return True if is sufficient
     and return cooffe price '''
-    coffe_cost = MENU[coffee]['cost']
+    #coffe_cost = MENU[coffee]['cost']
     for ingredient in MENU[coffee]["ingredients"]:
         if (MENU[coffee]["ingredients"].get(ingredient)) <= (available_resources.get(ingredient)):
             pass
