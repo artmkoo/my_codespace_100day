@@ -4,12 +4,19 @@ from money_machine import MoneyMachine
 
 coffee_menu =  Menu()
 coffee_machine = CoffeeMaker()
+money_machine = MoneyMachine()
 
-order = input(f"What would you like? {coffee_menu.get_items()}: ")
-drink = coffee_menu.find_drink(order)
-#coffee_machine.is_resource_sufficient(drink)
+is_working = True
 
-
-#check_resources = coffee_machine.is_resource_sufficient(drink)
-
-#print(f"{drink}")
+while is_working:
+    order = input(f"What would you like? {coffee_menu.get_items()}: ")
+    if order == "turnoff":
+        is_working = False
+    drink = coffee_menu.find_drink(order)
+    if drink and coffee_machine.is_resource_sufficient(drink):
+        #coffee_machine.report()
+        #money_machine.report()
+        if money_machine.make_payment(drink.cost):
+            coffee_machine.make_coffee(drink)
+            coffee_machine.report()
+            money_machine.report()
