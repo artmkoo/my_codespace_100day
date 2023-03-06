@@ -8,7 +8,7 @@ class QuizBrain:
     def still_has_questions(self):
         "check that game still has questions"
         self.number_of_questions = len(self.questions_list)
-        return self.question_number <= self.number_of_questions
+        return self.question_number < self.number_of_questions
 
     def next_question(self):
         text_question_form_list = self.questions_list[self.question_number].text
@@ -17,7 +17,6 @@ class QuizBrain:
         self.user_answer = input (f"Q.{self.question_number}: {text_question_form_list}. (True/False)?")
 
     def check_answer(self):
-        
         if self.user_answer == self.answer_question_from_list:
             print("correct aswer")
             self.score +=1
