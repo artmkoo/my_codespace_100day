@@ -12,6 +12,12 @@ for single_question in question_data:
 print("*******************")
 
 test_quiz = QuizBrain(question_bank)
-test_quiz.next_question()
+
+#print(test_quiz.check_answer())
+
+while test_quiz.still_has_questions() == True:
+    test_quiz.next_question()
+    test_quiz.check_answer()
+    print(f"score: {test_quiz.score}")
 
 #print(question_bank[5].text, question_bank[5].answer)
